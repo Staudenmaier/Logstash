@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Download') {
             steps {
-                sh 'echo "artifact file" > generatedFile.txt'
+                sh 'echo "{\"Klockwork\": \"100\"}" > generatedFile.txt'
             }
         }
     }
@@ -14,7 +14,6 @@ pipeline {
         }
     }
 
-    //logstash {
-    //        echo '{"Type": "KLST","window": {"title": "Sample Konfabulator Widget","name": "main_window","width": 500,"height": 500}}'
-    //}
 }
+logstashSend failBuild: false, maxLines: 100, sendArtefact: true
+
