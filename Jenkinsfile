@@ -17,5 +17,5 @@ pipeline {
     }
 
 }
-logstashSend failBuild: false, maxLines: 100, sendArtefact: true
+logstashSend failBuild: false, maxLines: 100, sendArtifact: true
 
