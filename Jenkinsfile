@@ -4,13 +4,15 @@ pipeline {
     stages {
         stage('Download') {
             steps {
-                sh 'echo "{\"Klockwork\": \"100\"}" > generatedFile.txt'
+                sh 'echo "{\"Klocwork\": \"100\"}" > klocwork.json'
+                sh 'echo "{\"Bullseye\": \"300\"}" > bullseye.json'
             }
         }
     }
     post {
         always {
-            archiveArtifacts artifacts: 'generatedFile.txt', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'klocwork.json', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'bullseye.json', onlyIfSuccessful: true
         }
     }
 
