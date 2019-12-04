@@ -5,7 +5,6 @@ pipeline {
     stages {
         stage('Download') {
             steps {
-                curlsend ''
                 sh 'echo "{\"Klocwork\": \"100\"}" > klocwork.json'
                 sh 'echo "{\"Bullseye\": \"300\"}" > bullseye.json'
             }
@@ -19,5 +18,6 @@ pipeline {
     }
 
 }
+curlsend 'klocwork.json'
 logstashSend failBuild: false, maxLines: 100, sendArtifact: true
 
