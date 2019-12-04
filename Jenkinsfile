@@ -5,8 +5,8 @@ pipeline {
     stages {
         stage('Download') {
             steps {
-                sh 'echo "{\"Klocwork\": \"100\"}" > klocwork.json'
-                sh 'echo "{\"Bullseye\": \"300\"}" > bullseye.json'
+                sh 'echo "{"Klocwork": 100}" > klocwork.json'
+                sh 'echo "{"Bullseye": 300}" > bullseye.json'
 		curlsend 'klocwork.json'
             }
         }
